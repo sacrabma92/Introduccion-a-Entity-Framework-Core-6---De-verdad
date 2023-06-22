@@ -7,5 +7,6 @@
         public decimal Precio { get; set; }
         public int CineId { get; set; }
         public Cine Cine { get; set; }
+        public HashSet<PeliculaSalaDeCine> PeliculasSalaDeCine { get; set; }
     }
 }

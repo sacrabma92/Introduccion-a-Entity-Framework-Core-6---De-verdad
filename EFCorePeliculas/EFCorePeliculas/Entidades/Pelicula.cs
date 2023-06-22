@@ -10,5 +10,8 @@ namespace EFCorePeliculas.Entidades
         public DateTime FechaEstreno { get; set; }
         //[Unicode(false)]
         public string PosterURL { get; set; }
+        public HashSet<PeliculaActor> PeliculasActores { get; set; }
+        public HashSet<GeneroPelicula> GenerosPeliculas { get; set; }
+        public HashSet<PeliculaSalaDeCine> PeliculasSalaDeCine { get; set; }
     }
 }

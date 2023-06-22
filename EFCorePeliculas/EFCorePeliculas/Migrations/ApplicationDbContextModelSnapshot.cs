@@ -117,6 +117,21 @@ namespace EFCorePeliculas.Migrations
                     b.ToTable("Generos");
                 });
 
+            modelBuilder.Entity("EFCorePeliculas.Entidades.GeneroPelicula", b =>
+                {
+                    b.Property<int>("GeneroId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PeliculaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("GeneroId", "PeliculaId");
+
+                    b.HasIndex("PeliculaId");
+
+                    b.ToTable("GenerosPeliculas");
+                });
+
             modelBuilder.Entity("EFCorePeliculas.Entidades.Pelicula", b =>
                 {
                     b.Property<int>("Id")
@@ -144,6 +159,44 @@ namespace EFCorePeliculas.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Peliculas");
+                });
+
+            modelBuilder.Entity("EFCorePeliculas.Entidades.PeliculaActor", b =>
+                {
+                    b.Property<int>("PeliculaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ActorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Orden")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Personaje")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.HasKey("PeliculaId", "ActorId");
+
+                    b.HasIndex("ActorId");
+
+                    b.ToTable("PeliculasActores");
+                });
+
+            modelBuilder.Entity("EFCorePeliculas.Entidades.PeliculaSalaDeCine", b =>
+                {
+                    b.Property<int>("PeliculaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SalaDeCineId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PeliculaId", "SalaDeCineId");
+
+                    b.HasIndex("SalaDeCineId");
+
+                    b.ToTable("PeliculaSalaDeCine");
                 });
 
             modelBuilder.Entity("EFCorePeliculas.Entidades.SalaDeCine", b =>
@@ -182,6 +235,63 @@ namespace EFCorePeliculas.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("EFCorePeliculas.Entidades.GeneroPelicula", b =>
+                {
+                    b.HasOne("EFCorePeliculas.Entidades.Genero", "Genero")
+                        .WithMany("GenerosPeliculas")
+                        .HasForeignKey("GeneroId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EFCorePeliculas.Entidades.Pelicula", "Pelicula")
+                        .WithMany("GenerosPeliculas")
+                        .HasForeignKey("PeliculaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Genero");
+
+                    b.Navigation("Pelicula");
+                });
+
+            modelBuilder.Entity("EFCorePeliculas.Entidades.PeliculaActor", b =>
+                {
+                    b.HasOne("EFCorePeliculas.Entidades.Actor", "Actor")
+                        .WithMany("PeliculasActores")
+                        .HasForeignKey("ActorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EFCorePeliculas.Entidades.Pelicula", "Pelicula")
+                        .WithMany("PeliculasActores")
+                        .HasForeignKey("PeliculaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Actor");
+
+                    b.Navigation("Pelicula");
+                });
+
+            modelBuilder.Entity("EFCorePeliculas.Entidades.PeliculaSalaDeCine", b =>
+                {
+                    b.HasOne("EFCorePeliculas.Entidades.Pelicula", "Pelicula")
+                        .WithMany("PeliculasSalaDeCine")
+                        .HasForeignKey("PeliculaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EFCorePeliculas.Entidades.SalaDeCine", "SalaDeCine")
+                        .WithMany("PeliculasSalaDeCine")
+                        .HasForeignKey("SalaDeCineId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pelicula");
+
+                    b.Navigation("SalaDeCine");
+                });
+
             modelBuilder.Entity("EFCorePeliculas.Entidades.SalaDeCine", b =>
                 {
                     b.HasOne("EFCorePeliculas.Entidades.Cine", "Cine")
@@ -193,12 +303,36 @@ namespace EFCorePeliculas.Migrations
                     b.Navigation("Cine");
                 });
 
+            modelBuilder.Entity("EFCorePeliculas.Entidades.Actor", b =>
+                {
+                    b.Navigation("PeliculasActores");
+                });
+
             modelBuilder.Entity("EFCorePeliculas.Entidades.Cine", b =>
                 {
                     b.Navigation("CineOferta")
                         .IsRequired();
 
                     b.Navigation("SalasDeCine");
+                });
+
+            modelBuilder.Entity("EFCorePeliculas.Entidades.Genero", b =>
+                {
+                    b.Navigation("GenerosPeliculas");
+                });
+
+            modelBuilder.Entity("EFCorePeliculas.Entidades.Pelicula", b =>
+                {
+                    b.Navigation("GenerosPeliculas");
+
+                    b.Navigation("PeliculasActores");
+
+                    b.Navigation("PeliculasSalaDeCine");
+                });
+
+            modelBuilder.Entity("EFCorePeliculas.Entidades.SalaDeCine", b =>
+                {
+                    b.Navigation("PeliculasSalaDeCine");
                 });
 #pragma warning restore 612, 618
         }

@@ -10,5 +10,6 @@ namespace EFCorePeliculas.Entidades
         //[StringLength(100)]
         //[Required]
         public string Nombre { get; set; }
+        public HashSet<GeneroPelicula> GenerosPeliculas { get; set; }
     }
 }
