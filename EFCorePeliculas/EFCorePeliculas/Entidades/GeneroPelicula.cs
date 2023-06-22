@@ -1,4 +1,6 @@
-﻿namespace EFCorePeliculas.Entidades
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace EFCorePeliculas.Entidades
 {
     public class GeneroPelicula
     {

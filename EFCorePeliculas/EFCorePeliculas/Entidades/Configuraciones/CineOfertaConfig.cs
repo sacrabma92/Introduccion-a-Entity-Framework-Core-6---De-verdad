@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.Reflection.Emit;
 
-namespace EFCorePeliculas.Entidades
+namespace EFCorePeliculas.Entidades.Configuraciones
 {
     public class CineOfertaConfig : IEntityTypeConfiguration<CineOferta>
     {

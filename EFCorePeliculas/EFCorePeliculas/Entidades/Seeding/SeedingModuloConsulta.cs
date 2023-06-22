@@ -114,11 +114,11 @@ namespace EFCorePeliculas.Entidades.Seeding
             };
 
             var entidadGeneroPelicula = "GeneroPelicula";
-            var generoIdPropiedad = "GenerosIdentificador";
-            var peliculaIdPropiedad = "PeliculasId";
+            var generoIdPropiedad = "GeneroId";
+            var peliculaIdPropiedad = "PeliculaId";
 
             var entidadSalaDeCinePelicula = "PeliculaSalaDeCine";
-            var salaDeCineIdPropiedad = "SalasDeCineId";
+            var salaDeCineIdPropiedad = "SalaDeCineId";
 
             modelBuilder.Entity(entidadGeneroPelicula).HasData(
                 new Dictionary<string, object> { [generoIdPropiedad] = acción.Identificador, [peliculaIdPropiedad] = avengers.Id },

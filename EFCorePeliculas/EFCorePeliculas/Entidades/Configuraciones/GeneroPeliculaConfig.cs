@@ -11,6 +11,7 @@ namespace EFCorePeliculas.Entidades.Configuraciones
             //Entidad GeneroPelicula
             builder.HasKey(prop =>
                          new { prop.GeneroId, prop.PeliculaId });
+            //builder.HasNoKey();
         }
     }
 }

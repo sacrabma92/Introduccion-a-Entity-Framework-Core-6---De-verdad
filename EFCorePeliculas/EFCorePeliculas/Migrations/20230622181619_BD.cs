@@ -7,7 +7,7 @@ using NetTopologySuite.Geometries;
 namespace EFCorePeliculas.Migrations
 {
     /// <inheritdoc />
-    public partial class PeliculaSalaDeCine : Migration
+    public partial class BD : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
