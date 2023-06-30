@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\EFCorePeliculas2.props" />
+</Project>
