@@ -1,8 +1,15 @@
-﻿namespace EFCorePeliculas.Entidades
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace EFCorePeliculas.Entidades
 {
     public class Genero
     {
-        public int Id { get; set; }
+        //[Key]
+        public int Identificador { get; set; }
+        //Configuracion para que tenga un tamaño fijo. Se puede colocar tambien en el API Fluente
+        //[StringLength(150)]
+        //[MaxLength(150)]
         public string Nombre { get; set; }
+        public HashSet<Pelicula> Peliculas { get; set; }
     }
 }

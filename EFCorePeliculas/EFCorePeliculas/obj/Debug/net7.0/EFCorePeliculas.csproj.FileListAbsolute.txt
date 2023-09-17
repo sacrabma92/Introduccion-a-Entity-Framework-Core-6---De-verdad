@@ -16,6 +16,7 @@ D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePelicul
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\Microsoft.Identity.Client.dll
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
@@ -29,6 +30,8 @@ D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePelicul
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\Mono.TextTemplating.dll
+D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\NetTopologySuite.dll
+D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\NetTopologySuite.IO.SqlServerBytes.dll
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -60,6 +63,7 @@ D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePelicul
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\obj\Debug\net7.0\EFCorePeliculas.csproj.CoreCompileInputs.cache
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\obj\Debug\net7.0\EFCorePeliculas.MvcApplicationPartsAssemblyInfo.cs
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\obj\Debug\net7.0\EFCorePeliculas.MvcApplicationPartsAssemblyInfo.cache
+D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\obj\Debug\net7.0\EFCoreSqlServerNetTopologySuite.cs
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\obj\Debug\net7.0\staticwebassets\msbuild.EFCorePeliculas.Microsoft.AspNetCore.StaticWebAssets.props
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\obj\Debug\net7.0\staticwebassets\msbuild.build.EFCorePeliculas.props
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.EFCorePeliculas.props
