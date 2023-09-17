@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EFCorePeliculas</name>
+    </assembly>
+    <members>
+        <member name="M:EFCorePeliculas.Controllers.GenerosController.Get">
+            <summary>
+            Trae todos los Generos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EFCorePeliculas.Controllers.GenerosController.GetGeneroPorId(System.Int32)">
+            <summary>
+            Trae el genero por el id
+            </summary>
+            <param name="id">Id del genero a buscar</param>
+            <returns></returns>
+        </member>
+        <member name="M:EFCorePeliculas.Controllers.GenerosController.Filtrar(System.String)">
+            <summary>
+            Buscamos generos que contengan la palabra o letra ingresada.
+            Ordenados por Nombre Ascendente
+            </summary>
+            <param name="nombre"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EFCorePeliculas.Controllers.GenerosController.GetPaginacion(System.Int32)">
+            <summary>
+            Paginando con Take v41
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EFCorePeliculas.Controllers.GenerosController.GetEmpiezaCon(System.String)">
+            <summary>
+            Genero que empieza con la letra ingresada
+            </summary>
+            <param name="letra"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EFCorePeliculas.Controllers.GenerosController.GetFinalizaCon(System.String)">
+            <summary>
+            Genero que finaliza con la letra ingresada
+            </summary>
+            <param name="letra"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EFCorePeliculas.Migrations.Firts">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.Firts.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.Firts.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.Firts.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EFCorePeliculas.Migrations.datosDePrueba">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.datosDePrueba.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.datosDePrueba.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.datosDePrueba.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

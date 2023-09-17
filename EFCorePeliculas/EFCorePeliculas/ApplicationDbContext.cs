@@ -28,12 +28,12 @@ namespace EFCorePeliculas
             SeedingModuloConsulta.Seed(modelBuilder);
         }
 
-        DbSet<Genero> Generos { get; set; }
-        DbSet<Actor> Actores { get; set; }
-        DbSet<Cine> Cines { get; set; }
-        DbSet<Pelicula> Peliculas { get; set; }
-        DbSet<CineOferta> CinesOfertas { get; set; }
-        DbSet<SalaDeCine> SalasDeCines { get; set; }
-        DbSet<PeliculaActor> PeliculasActores { get; set; }
+        public DbSet<Genero> Generos { get; set; }
+        public DbSet<Actor> Actores { get; set; }
+        public DbSet<Cine> Cines { get; set; }
+        public DbSet<Pelicula> Peliculas { get; set; }
+        public DbSet<CineOferta> CinesOfertas { get; set; }
+        public DbSet<SalaDeCine> SalasDeCines { get; set; }
+        public DbSet<PeliculaActor> PeliculasActores { get; set; }
     }
 }
