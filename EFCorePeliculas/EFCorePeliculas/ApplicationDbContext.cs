@@ -1,4 +1,5 @@
 ﻿using EFCorePeliculas.Entidades;
+using EFCorePeliculas.Entidades.Seeding;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -24,6 +25,7 @@ namespace EFCorePeliculas
 
             // Linea que configura el API fluente de la carpeta Configuraciones
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            SeedingModuloConsulta.Seed(modelBuilder);
         }
 
         DbSet<Genero> Generos { get; set; }
