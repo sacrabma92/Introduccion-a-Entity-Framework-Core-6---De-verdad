@@ -80,3 +80,5 @@ D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePelicul
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\obj\Debug\net7.0\ref\EFCorePeliculas.dll
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\EFCorePeliculas.xml
 D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\obj\Debug\net7.0\EFCorePeliculas.xml
+D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\AutoMapper.dll
+D:\PROYECTOS\C#\Introduccion a Entity Framework Core 6 - De verdad\EFCorePeliculas\EFCorePeliculas\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

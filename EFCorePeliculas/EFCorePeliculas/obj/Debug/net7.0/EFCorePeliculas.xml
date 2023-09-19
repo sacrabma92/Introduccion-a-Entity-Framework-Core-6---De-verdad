@@ -4,6 +4,33 @@
         <name>EFCorePeliculas</name>
     </assembly>
     <members>
+        <member name="M:EFCorePeliculas.Controllers.ActoresController.GetSelect">
+            <summary>
+            Usamos la condicion Select para traer solo los campos requeridos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EFCorePeliculas.Controllers.ActoresController.GetAutoMapper">
+            <summary>
+            Usamos Autommaper para mappear la clase ActorDTO a Actor 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EFCorePeliculas.Controllers.CinesController.Get">
+            <summary>
+            v44 Configurando la Latitud y Longitud para poder visualizarlo
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EFCorePeliculas.Controllers.CinesController.GetCercano(System.Double,System.Double)">
+            <summary>
+            v45 Buscamos los cines mas cercanos segun parametros de latitud y longitud..
+            A la distancia mas corta de 2km
+            </summary>
+            <param name="latitud"></param>
+            <param name="longitud"></param>
+            <returns></returns>
+        </member>
         <member name="M:EFCorePeliculas.Controllers.GenerosController.Get">
             <summary>
             Trae todos los Generos
@@ -43,6 +70,14 @@
             Genero que finaliza con la letra ingresada
             </summary>
             <param name="letra"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EFCorePeliculas.Controllers.PeliculasController.GetPorId(System.Int32)">
+            <summary>
+            v46-47 Traer data relacionada con Eager Loading
+            Se corrige el problema de traer un campo tipo Point de la clase Cine
+            </summary>
+            <param name="id">Id a buscar</param>
             <returns></returns>
         </member>
         <member name="T:EFCorePeliculas.Migrations.Firts">
