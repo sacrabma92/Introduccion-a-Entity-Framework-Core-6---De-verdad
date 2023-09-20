@@ -131,5 +131,44 @@ namespace EFCorePeliculas.Controllers
 
             return Ok(peliculaDTO);
         }
+
+        /// <summary>
+        /// Agrupadas si estan en carteleraa o no
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("agrupadasPorEstreno")]
+        public async Task<ActionResult> GetAgrupadasPorCarteleras()
+        {
+            var peliculasAgrupadas = await _context.Peliculas.GroupBy(p => p.EnCartelera)
+                .Select( g => new
+                {
+                    EnCartelero = g.Key,
+                    Conteo = g.Count(),
+                    Peliculas = g.ToList(),
+                })
+                .ToListAsync();
+
+            return Ok(peliculasAgrupadas);
+        }
+
+        /// <summary>
+        /// v54 Agrupadas por cantidad de generos
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("agrupadaporcantidaddegeneros")]
+        public async Task<ActionResult> GetAgrupadasPorCantidadDeGeneros()
+        {
+            var peliculasAgrupadas = await _context.Peliculas.GroupBy( g => g.Generos.Count())
+                                        .Select(g => new
+                                        {
+                                            Conteo = g.Key,
+                                            Titulos = g.Select(x => x.Titulo),
+                                            Generos = g.Select(p => p.Generos)
+                                                .SelectMany( gen => gen )
+                                                .Select(gen => gen.Nombre)
+                                                .Distinct()
+                                        }).ToListAsync();
+            return Ok(peliculasAgrupadas);
+        }
     }
 }
