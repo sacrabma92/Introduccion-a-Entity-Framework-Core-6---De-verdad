@@ -105,5 +105,31 @@ namespace EFCorePeliculas.Controllers
 
             return Ok(pelicula);
         }
+
+        /// <summary>
+        /// Carga de forma explicita
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("explicitloading/{id:int}")]
+        public async Task<ActionResult<PeliculaDTO>> GetExplicito(int id)
+        {
+            var pelicula = await _context.Peliculas.AsTracking().FirstOrDefaultAsync( p => p.Id == id);
+            
+            //Carga los generos de forma explicita
+            await _context.Entry(pelicula).Collection(p => p.Generos).LoadAsync();
+
+            // Carga la cantidad de data de generos de la pelicula
+            var cantidadGeneros = await _context.Entry(pelicula).Collection(p => p.Generos).Query().CountAsync();
+
+            if( pelicula == null)
+            {
+                return NotFound();
+            }
+
+            var peliculaDTO = _mapper.Map<PeliculaDTO>(pelicula);
+
+            return Ok(peliculaDTO);
+        }
     }
 }

@@ -97,6 +97,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:EFCorePeliculas.Controllers.PeliculasController.GetExplicito(System.Int32)">
+            <summary>
+            Carga de forma explicita
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:EFCorePeliculas.Migrations.Firts">
             <inheritdoc />
         </member>
