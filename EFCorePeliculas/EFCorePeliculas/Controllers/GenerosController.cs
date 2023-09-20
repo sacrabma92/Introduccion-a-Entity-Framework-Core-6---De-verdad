@@ -1,4 +1,5 @@
-﻿using EFCorePeliculas.Entidades;
+﻿using EFCorePeliculas.DTOs;
+using EFCorePeliculas.Entidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -112,6 +113,47 @@ namespace EFCorePeliculas.Controllers
             }
 
             return Ok(finalizaCon);
+        }
+
+        /// <summary>
+        /// v58 Como funciona el estado desde codigo
+        /// </summary>
+        /// <param name="genero"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<ActionResult> Post(Genero genero)
+        {
+            var estatus1 = _context.Entry(genero).State;
+            _context.Add(genero);
+            var estatus2 = _context.Entry(genero).State;
+            await _context.SaveChangesAsync();
+            var estatus3 = _context.Entry(genero).State;
+            return Ok();
+        }
+
+
+
+        /// <summary>
+        /// v 61 Insertar varios registros al mismo tiempo
+        /// </summary>
+        /// <param name="generos"></param>
+        /// <returns></returns>
+        /// 
+        //Forma de enviar varaios en el arreglo
+        //    [
+        //        {
+        //          "nombre": "Biografia 1"
+        //        },
+        //        {
+        //          "nombre": "Biografia 2"
+        //        }
+        //    ]
+        [HttpPost("varios")]
+        public async Task<ActionResult> Post(Genero[] generos)
+        {
+            _context.AddRange(generos);
+            await _context.SaveChangesAsync();
+            return Ok();
         }
     }
 }

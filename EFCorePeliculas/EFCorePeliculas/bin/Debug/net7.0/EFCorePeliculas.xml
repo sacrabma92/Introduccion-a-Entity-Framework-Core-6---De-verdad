@@ -31,6 +31,19 @@
             <param name="longitud"></param>
             <returns></returns>
         </member>
+        <member name="M:EFCorePeliculas.Controllers.CinesController.PostCineCineOferta">
+            <summary>
+            Insertando registro con data relacionada quemada
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EFCorePeliculas.Controllers.CinesController.Post(EFCorePeliculas.DTOs.CineCreacionDTO)">
+            <summary>
+            v62 Creacion de un modelo con DTO. Se realiza la inserccion a multiples tablas relacionadas
+            </summary>
+            <param name="cineCreacionDTO"></param>
+            <returns></returns>
+        </member>
         <member name="M:EFCorePeliculas.Controllers.GenerosController.Get">
             <summary>
             Trae todos los Generos
@@ -71,6 +84,21 @@
             </summary>
             <param name="letra"></param>
             <returns></returns>
+        </member>
+        <member name="M:EFCorePeliculas.Controllers.GenerosController.Post(EFCorePeliculas.Entidades.Genero)">
+            <summary>
+            v58 Como funciona el estado desde codigo
+            </summary>
+            <param name="genero"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EFCorePeliculas.Controllers.GenerosController.Post(EFCorePeliculas.Entidades.Genero[])">
+            <summary>
+            v 61 Insertar varios registros al mismo tiempo
+            </summary>
+            <param name="generos"></param>
+            <returns></returns>
+            
         </member>
         <member name="M:EFCorePeliculas.Controllers.PeliculasController.GetPorInclude(System.Int32)">
             <summary>
