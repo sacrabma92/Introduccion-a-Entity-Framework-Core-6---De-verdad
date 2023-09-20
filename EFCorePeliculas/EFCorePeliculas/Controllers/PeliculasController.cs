@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using EFCorePeliculas.DTOs;
 using EFCorePeliculas.Entidades;
 using Microsoft.AspNetCore.Http;
@@ -23,19 +24,21 @@ namespace EFCorePeliculas.Controllers
         /// <summary>
         /// v46-47 Traer data relacionada con Eager Loading
         /// Se corrige el problema de traer un campo tipo Point de la clase Cine
+        /// v48 Se organiza el genero de forma Descendente.
+        /// v48 Se optiene los actores mayores a 1980
         /// </summary>
         /// <param name="id">Id a buscar</param>
         /// <returns></returns>
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<PeliculaDTO>> GetPorId(int id)
+        public async Task<ActionResult<PeliculaDTO>> GetPorInclude(int id)
         {
             var peliculas = await _context.Peliculas
-                .Include(p => p.Generos)
+                .Include(p => p.Generos.OrderByDescending(g => g.Nombre))
                 .Include(p => p.SalasDeCine)
                 // LO que realiza ThenInclude es entrar a la entidad cine que se 
                 // encuentra en la clase SalasDeCine para traer los datos
                     .ThenInclude(s => s.Cine)
-                .Include(p => p.PeliculasActores)
+                .Include(p => p.PeliculasActores.Where(pa => pa.Actor.FechaNacimiento.Value.Year >= 1980 ))
                     .ThenInclude(a => a.Actor)
                 .FirstOrDefaultAsync(x => x.Id == id);
 
@@ -49,6 +52,58 @@ namespace EFCorePeliculas.Controllers
             peliculaDTO.Cines = peliculaDTO.Cines.DistinctBy(x => x.Id).ToList();
 
             return Ok(peliculaDTO);
+        }
+
+        /// <summary>
+        /// v49 Se usa ProjectTo para carga de datos.
+        /// Tambien toca configurar el AutoMapper para que pueda funcionar
+        /// </summary>
+        /// <param name="id">Id a buscar</param>
+        /// <returns></returns>
+        [HttpGet("conprojectto/{id:int}")]
+        public async Task<ActionResult<PeliculaDTO>> GetProjectTo(int id)
+        {
+            var peliculas = await _context.Peliculas
+                .ProjectTo<PeliculaDTO>(_mapper.ConfigurationProvider)
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            if (peliculas == null)
+            {
+                return NotFound();
+            }
+
+            peliculas.Cines = peliculas.Cines.DistinctBy(x => x.Id).ToList();
+
+            return Ok(peliculas);
+        }
+
+        /// <summary>
+        /// v50 Obtener valores por metodo Select
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("cargadoselectivo/{id:int}")]
+        public async Task<ActionResult> GetSelectivo(int id)
+        {
+            var pelicula = await _context.Peliculas.Select(p =>
+            new
+            {
+                Id = p.Id,
+                Titulos = p.Titulo,
+                // Trae los generos ordenados de forma ascendente y trae solo el nombre omite el id
+                Generos = p.Generos.OrderByDescending(g => g.Nombre).Select(g => g.Nombre).ToList(),
+                // Cantidad de actores asociados a esa pelicula
+                CantidadActores = p.PeliculasActores.Count(),
+                // Hace un conteno de Cines. Cuantos cines se encuentra esta pelicula
+                CantidadCines = p.SalasDeCine.Select( s => s.CineId).Distinct().Count(),
+            }).FirstOrDefaultAsync(x => x.Id == id);
+
+            if(pelicula == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(pelicula);
         }
     }
 }

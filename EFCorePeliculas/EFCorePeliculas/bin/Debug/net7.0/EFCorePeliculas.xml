@@ -72,12 +72,29 @@
             <param name="letra"></param>
             <returns></returns>
         </member>
-        <member name="M:EFCorePeliculas.Controllers.PeliculasController.GetPorId(System.Int32)">
+        <member name="M:EFCorePeliculas.Controllers.PeliculasController.GetPorInclude(System.Int32)">
             <summary>
             v46-47 Traer data relacionada con Eager Loading
             Se corrige el problema de traer un campo tipo Point de la clase Cine
+            v48 Se organiza el genero de forma Descendente.
+            v48 Se optiene los actores mayores a 1980
             </summary>
             <param name="id">Id a buscar</param>
+            <returns></returns>
+        </member>
+        <member name="M:EFCorePeliculas.Controllers.PeliculasController.GetProjectTo(System.Int32)">
+            <summary>
+            v49 Se usa ProjectTo para carga de datos.
+            Tambien toca configurar el AutoMapper para que pueda funcionar
+            </summary>
+            <param name="id">Id a buscar</param>
+            <returns></returns>
+        </member>
+        <member name="M:EFCorePeliculas.Controllers.PeliculasController.GetSelectivo(System.Int32)">
+            <summary>
+            v50 Obtener valores por metodo Select
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="T:EFCorePeliculas.Migrations.Firts">
