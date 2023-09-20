@@ -170,5 +170,43 @@ namespace EFCorePeliculas.Controllers
                                         }).ToListAsync();
             return Ok(peliculasAgrupadas);
         }
+        
+        /// <summary>
+        /// v55 Ejecucion diferida
+        /// </summary>
+        /// <param name="peliculasFiltroDTO"></param>
+        /// <returns></returns>
+        [HttpGet("filtrar")]
+        public async Task<ActionResult<List<PeliculaDTO>>> Filtrar([FromQuery] PeliculasFiltroDTO peliculasFiltroDTO)
+        {
+            var peliculasQueryable = _context.Peliculas.AsQueryable();
+
+            if(!string.IsNullOrEmpty(peliculasFiltroDTO.Titulo))
+            {
+                peliculasQueryable = peliculasQueryable.Where(p => p.Titulo.Contains(peliculasFiltroDTO.Titulo));
+            }
+
+            if(peliculasFiltroDTO.EnCartelera)
+            {
+                peliculasQueryable = peliculasQueryable.Where(p => p.EnCartelera);
+            }
+
+            if(peliculasFiltroDTO.ProximosEstrenos)
+            {
+                var hoy = DateTime.Now;
+                peliculasQueryable = peliculasQueryable.Where(p => p.FechaEstreno > hoy);
+            }
+
+            if(peliculasFiltroDTO.GeneroId != 0)
+            {
+                peliculasQueryable = peliculasQueryable.Where(p => 
+                        p.Generos.Select(p => p.Identificador)
+                            .Contains(peliculasFiltroDTO.GeneroId));
+            }
+
+            var peliculas = await peliculasQueryable.Include( p => p.Generos).ToListAsync();
+
+            return _mapper.Map<List<PeliculaDTO>>(peliculas);
+        }
     }
 }

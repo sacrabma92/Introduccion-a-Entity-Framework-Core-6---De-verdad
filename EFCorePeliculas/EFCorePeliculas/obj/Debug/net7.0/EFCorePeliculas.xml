@@ -112,8 +112,15 @@
         </member>
         <member name="M:EFCorePeliculas.Controllers.PeliculasController.GetAgrupadasPorCantidadDeGeneros">
             <summary>
-            Agrupadas por cantidad de generos
+            v54 Agrupadas por cantidad de generos
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EFCorePeliculas.Controllers.PeliculasController.Filtrar(EFCorePeliculas.DTOs.PeliculasFiltroDTO)">
+            <summary>
+            v55 Ejecucion diferida
+            </summary>
+            <param name="peliculasFiltroDTO"></param>
             <returns></returns>
         </member>
         <member name="T:EFCorePeliculas.Migrations.Firts">
