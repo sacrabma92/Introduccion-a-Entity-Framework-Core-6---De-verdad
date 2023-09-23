@@ -16,6 +16,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:EFCorePeliculas.Controllers.ActoresController.Post(EFCorePeliculas.DTOs.ActorCreacionDTO)">
+            <summary>
+            Creacion de actor con la primera letra del nombre en Mayuscula
+            </summary>
+            <param name="actorCreacionDTO"></param>
+            <returns></returns>
+        </member>
         <member name="M:EFCorePeliculas.Controllers.CinesController.Get">
             <summary>
             v44 Configurando la Latitud y Longitud para poder visualizarlo

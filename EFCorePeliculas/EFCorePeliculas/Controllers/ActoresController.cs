@@ -12,12 +12,12 @@ namespace EFCorePeliculas.Controllers
     public class ActoresController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-        private readonly IMapper mapper;
+        private readonly IMapper _mapper;
 
         public ActoresController(ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
-            this.mapper = mapper;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -42,10 +42,24 @@ namespace EFCorePeliculas.Controllers
         public async Task<ActionResult<ActorDTO>> GetAutoMapper()
         {
             var actores = await _context.Actores
-                .ProjectTo<ActorDTO>(mapper.ConfigurationProvider)
+                .ProjectTo<ActorDTO>(_mapper.ConfigurationProvider)
                 .ToListAsync();
 
             return Ok(actores);
+        }
+
+        /// <summary>
+        /// Creacion de actor con la primera letra del nombre en Mayuscula
+        /// </summary>
+        /// <param name="actorCreacionDTO"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<ActionResult> Post(ActorCreacionDTO actorCreacionDTO)
+        {
+            var  actor = _mapper.Map<Actor>(actorCreacionDTO);
+            _context.Add(actor);
+            await _context.SaveChangesAsync();
+            return Ok();
         }
     }
 }
