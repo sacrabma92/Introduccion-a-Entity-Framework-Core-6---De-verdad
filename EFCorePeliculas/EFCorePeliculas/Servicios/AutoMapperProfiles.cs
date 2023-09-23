@@ -29,6 +29,7 @@ namespace EFCorePeliculas.Servicios
             CreateMap<CineCreacionDTO, Cine>()
                 .ForMember(ent => ent.Ubicacion, dto => dto.MapFrom(campo => geometryFactory.CreatePoint(new Coordinate(campo.Longitud, campo.Latitud))));
 
+            CreateMap<CineActualizacionDTO, Cine>();
             CreateMap<CineOfertaCreacionDTO, CineOferta>();
             CreateMap<SalaDeCineCreacionDTO, SalaDeCine>();
 

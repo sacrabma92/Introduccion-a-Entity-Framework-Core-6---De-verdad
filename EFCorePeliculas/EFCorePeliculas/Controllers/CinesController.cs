@@ -32,7 +32,7 @@ namespace EFCorePeliculas.Controllers
         {
             var cines = await _context.Cines.
                 ProjectTo<CineDTO>(_mapper.ConfigurationProvider).ToListAsync();
-            
+
             return cines;
         }
 
@@ -107,14 +107,14 @@ namespace EFCorePeliculas.Controllers
             await _context.SaveChangesAsync();
             return Ok();
         }
-        
+
         /// <summary>
         /// v62 Inserccion de datos en multiples tablas relacionadas
         /// </summary>
         /// <param name="cineCreacionDTO"></param>
         /// <returns></returns>
         [HttpPost("conDTO")]
-        public async Task<ActionResult> Post( CineCreacionDTO cineCreacionDTO)
+        public async Task<ActionResult> Post(CineCreacionDTO cineCreacionDTO)
         {
             var cine = _mapper.Map<Cine>(cineCreacionDTO);
 
@@ -123,5 +123,64 @@ namespace EFCorePeliculas.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Actualizar la tabla cine oferta con Modelo Desconectado. No sabe que ha cambiado y trata de actualizar todo
+        /// </summary>
+        /// <param name="cineOferta"></param>
+        /// <returns></returns>
+        [HttpPut("cineoferta")]
+        public async Task<ActionResult> PutCineOferta(CineOferta cineOferta)
+        {
+            _context.Update(cineOferta);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
+        /// <summary>
+        /// Traemos la tabla Cine y sus tablas relacionadas para podere usar el endpint de Put de actualizar
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("cinescontablasrelacionadas/{id:int}")]
+        public async Task<ActionResult> Get(int id)
+        {
+            var cineDB = await _context.Cines.AsNoTracking()
+                    .Include(x => x.SalaDeCine)
+                    .Include(x => x.CineOferta)
+                    .FirstOrDefaultAsync(c => c.Id == id);
+
+            if (cineDB is null)
+            {
+                return NotFound();
+            }
+
+            cineDB.Ubicacion = null;
+
+            return Ok(cineDB);
+        }
+
+        /// <summary>
+        /// Actualziar Cines y sus tablas relalcionadas
+        /// </summary>
+        /// <param name="cineActualizacionDTO"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult> Put(CineActualizacionDTO cineActualizacionDTO, int id)
+        {
+            var cineDB = await _context.Cines.AsNoTracking()
+                                .Include(x => x.SalaDeCine)
+                                .Include(x => x.CineOferta)
+                                .FirstOrDefaultAsync(c => c.Id == id);
+
+            if(cineDB is null)
+            {
+                return NotFound();
+            }
+
+            cineDB = _mapper.Map(cineActualizacionDTO, cineDB);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
     }
 }

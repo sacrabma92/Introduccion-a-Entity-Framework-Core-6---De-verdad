@@ -61,5 +61,50 @@ namespace EFCorePeliculas.Controllers
             await _context.SaveChangesAsync();
             return Ok();
         }
+
+        /// <summary>
+        /// v65 Actualizacion con Modelo Conectado. Permite actualizar de forma parcial
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="actorCreacionDTO"></param>
+        /// <returns></returns>
+        [HttpPut("modeloConectado/{id:int}")]
+        public async Task<ActionResult> PutConectado(int id, ActorCreacionDTO actorCreacionDTO)
+        {
+            var actorDB = await _context.Actores.AsTracking().FirstOrDefaultAsync(x => x.Id == id);
+
+            if (actorDB is null)
+            {
+                return NotFound();
+            }
+
+            actorDB = _mapper.Map(actorCreacionDTO, actorDB);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
+        /// <summary>
+        /// v66 Actualizacion con Modelo Desconectado. No sabe que ha cambiado y trata de actualizarlo todo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="actorCreacionDTO"></param>
+        /// <returns></returns>
+        [HttpPut("modeloDesconectado/{id:int}")]
+        public async Task<ActionResult> PutDesconectado(int id, ActorCreacionDTO actorCreacionDTO)
+        {
+            var existeActor = await _context.Actores.AnyAsync(x => x.Id == id);
+
+            if (!existeActor)
+            {
+                return NotFound();
+            }
+
+            var actor = _mapper.Map<Actor>(actorCreacionDTO);
+            actor.Id = id;
+
+            _context.Update(actor);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
     }
 }

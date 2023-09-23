@@ -155,5 +155,25 @@ namespace EFCorePeliculas.Controllers
             await _context.SaveChangesAsync();
             return Ok();
         }
+
+        /// <summary>
+        /// Borrado normal de la tabla
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var genero = _context.Generos.FirstOrDefaultAsync(x => x.Identificador == id);
+
+            if(genero is null)
+            {
+                return NotFound();
+            }
+
+            _context.Remove(genero);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
     }
 }
