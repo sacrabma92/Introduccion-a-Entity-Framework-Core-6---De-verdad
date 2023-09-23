@@ -13,6 +13,9 @@ namespace EFCorePeliculas.Entidades.Configuraciones
             builder.Property(prop => prop.Nombre)
                 .HasMaxLength(150)
                 .IsRequired();
+
+            // v70 no muesta los que esten desactivados
+            builder.HasQueryFilter(g => !g.EstaBorrado);
         }
     }
 }

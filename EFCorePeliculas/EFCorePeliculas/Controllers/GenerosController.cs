@@ -24,7 +24,9 @@ namespace EFCorePeliculas.Controllers
         [HttpGet]
         public async Task<IEnumerable<Genero>> Get()
         {
-            return await _context.Generos.ToListAsync();
+            return await _context.Generos
+                //.Where(g => !g.EstaBorrado)
+                .ToListAsync();
         }
 
         /// <summary>
@@ -172,6 +174,49 @@ namespace EFCorePeliculas.Controllers
             }
 
             _context.Remove(genero);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
+        /// <summary>
+        /// v69 Borrado suave - Desactivar estado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete("desactivarestado/{id:int}")]
+        public async Task<ActionResult> DeleteSuave(int id)
+        {
+            var genero = await _context.Generos.AsTracking().FirstOrDefaultAsync(x => x.Identificador == id);
+
+            if (genero is null)
+            {
+                return NotFound();
+            }
+
+            genero.EstaBorrado = true;
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
+        /// <summary>
+        /// v70 Restaura el registro que se encuentra inactivo lo casa a estar activo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPost("Restaurar/{id:int}")]
+        public async Task<ActionResult> Restaurar(int id)
+        {
+            var genero = await _context.Generos
+                .IgnoreQueryFilters()
+                .AsTracking().
+                FirstOrDefaultAsync(x => x.Identificador == id);
+
+            if (genero is null)
+            {
+                return NotFound();
+            }
+
+            genero.EstaBorrado = false;
             await _context.SaveChangesAsync();
             return Ok();
         }

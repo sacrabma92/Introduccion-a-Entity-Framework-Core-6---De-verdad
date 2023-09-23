@@ -152,6 +152,20 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:EFCorePeliculas.Controllers.GenerosController.DeleteSuave(System.Int32)">
+            <summary>
+            v69 Borrado suave - Desactivar estado
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EFCorePeliculas.Controllers.GenerosController.Restaurar(System.Int32)">
+            <summary>
+            v70 Restaura el registro que se encuentra inactivo lo casa a estar activo
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:EFCorePeliculas.Controllers.PeliculasController.GetPorInclude(System.Int32)">
             <summary>
             v46-47 Traer data relacionada con Eager Loading
@@ -225,6 +239,18 @@
             <inheritdoc />
         </member>
         <member name="M:EFCorePeliculas.Migrations.datosDePrueba.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EFCorePeliculas.Migrations.generoBorradoSuave">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.generoBorradoSuave.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.generoBorradoSuave.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.generoBorradoSuave.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>
