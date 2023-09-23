@@ -39,7 +39,7 @@
         </member>
         <member name="M:EFCorePeliculas.Controllers.CinesController.Post(EFCorePeliculas.DTOs.CineCreacionDTO)">
             <summary>
-            v62 Creacion de un modelo con DTO. Se realiza la inserccion a multiples tablas relacionadas
+            v62 Inserccion de datos en multiples tablas relacionadas
             </summary>
             <param name="cineCreacionDTO"></param>
             <returns></returns>
