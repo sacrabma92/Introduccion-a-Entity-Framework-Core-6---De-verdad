@@ -95,6 +95,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:EFCorePeliculas.Controllers.CinesController.Delete(System.Int32)">
+            <summary>
+            v88 Eliminar un Cine cuando la FK es Opcional. Se realiza mediante un .Include
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:EFCorePeliculas.Controllers.GenerosController.Get">
             <summary>
             Trae todos los Generos

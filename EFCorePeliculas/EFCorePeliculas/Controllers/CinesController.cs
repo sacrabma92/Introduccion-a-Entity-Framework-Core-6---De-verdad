@@ -193,5 +193,27 @@ namespace EFCorePeliculas.Controllers
             await _context.SaveChangesAsync();
             return Ok();
         }
+
+        /// <summary>
+        /// v88 Eliminar un Cine cuando la FK es Opcional. Se realiza mediante un .Include
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var cine = await _context.Cines
+                .Include(c => c.CineOferta)
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            if(cine is null)
+            {
+                return NotFound();
+            }
+
+            _context.Remove(cine);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
     }
 }
