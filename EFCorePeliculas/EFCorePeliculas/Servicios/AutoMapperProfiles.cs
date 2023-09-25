@@ -17,6 +17,7 @@ namespace EFCorePeliculas.Servicios
                 .ForMember(dto => dto.Longitud, ent => ent.MapFrom(prop => prop.Ubicacion.X));
 
             CreateMap<Genero, GeneroDTO>().ReverseMap();
+            CreateMap<Genero, GeneroCreacionDTO>().ReverseMap();
 
             CreateMap<Pelicula, PeliculaDTO>()
                 .ForMember(dto => dto.Cines, ent => ent

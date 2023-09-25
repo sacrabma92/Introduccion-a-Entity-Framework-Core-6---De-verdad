@@ -45,6 +45,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:EFCorePeliculas.Controllers.CinesController.GetCinesSinUbucacion">
+            <summary>
+            v80 Entidad sin llaves
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:EFCorePeliculas.Controllers.CinesController.GetCercano(System.Double,System.Double)">
             <summary>
             v45 Buscamos los cines mas cercanos segun parametros de latitud y longitud..
@@ -130,7 +136,7 @@
             <param name="letra"></param>
             <returns></returns>
         </member>
-        <member name="M:EFCorePeliculas.Controllers.GenerosController.Post(EFCorePeliculas.Entidades.Genero)">
+        <member name="M:EFCorePeliculas.Controllers.GenerosController.Post(EFCorePeliculas.DTOs.GeneroCreacionDTO)">
             <summary>
             v58 Como funciona el estado desde codigo
             </summary>
@@ -182,6 +188,12 @@
             Tambien toca configurar el AutoMapper para que pueda funcionar
             </summary>
             <param name="id">Id a buscar</param>
+            <returns></returns>
+        </member>
+        <member name="M:EFCorePeliculas.Controllers.PeliculasController.GetPeliculasConCOnteos">
+            <summary>
+            v81 Ejecutando con Vista SQL
+            </summary>
             <returns></returns>
         </member>
         <member name="M:EFCorePeliculas.Controllers.PeliculasController.GetSelectivo(System.Int32)">
@@ -251,6 +263,78 @@
             <inheritdoc />
         </member>
         <member name="M:EFCorePeliculas.Migrations.generoBorradoSuave.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EFCorePeliculas.Migrations.losg">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.losg.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.losg.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.losg.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EFCorePeliculas.Migrations.GeneroIndice">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.GeneroIndice.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.GeneroIndice.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.GeneroIndice.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EFCorePeliculas.Migrations.IndiceNombreFiltro">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.IndiceNombreFiltro.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.IndiceNombreFiltro.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.IndiceNombreFiltro.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EFCorePeliculas.Migrations.EjemploConversion">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.EjemploConversion.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.EjemploConversion.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.EjemploConversion.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EFCorePeliculas.Migrations.CampoMoneda">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.CampoMoneda.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.CampoMoneda.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.CampoMoneda.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EFCorePeliculas.Migrations.VistaConteoPeliculas">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.VistaConteoPeliculas.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.VistaConteoPeliculas.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.VistaConteoPeliculas.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

@@ -1,5 +1,6 @@
 ﻿using EFCorePeliculas.Entidades;
 using EFCorePeliculas.Entidades.Seeding;
+using EFCorePeliculas.Entidades.SinLLaves;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -26,6 +27,12 @@ namespace EFCorePeliculas
             // Linea que configura el API fluente de la carpeta Configuraciones
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             SeedingModuloConsulta.Seed(modelBuilder);
+
+            //v80 Entidad sin llaves
+            modelBuilder.Entity<CineSinUbicacion>().HasNoKey()
+                .ToSqlQuery("Select Id, Nombre FROM Cines").ToView(null);
+
+            modelBuilder.Entity<PeliculaConConteos>().HasNoKey().ToView("PeliculasConteo"); 
         }
 
         public DbSet<Genero> Generos { get; set; }
@@ -35,5 +42,6 @@ namespace EFCorePeliculas
         public DbSet<CineOferta> CinesOfertas { get; set; }
         public DbSet<SalaDeCine> SalasDeCines { get; set; }
         public DbSet<PeliculaActor> PeliculasActores { get; set; }
+        public DbSet<Log> Logs { get; set; }
     }
 }

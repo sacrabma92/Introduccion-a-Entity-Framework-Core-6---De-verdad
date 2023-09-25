@@ -1,4 +1,5 @@
-﻿using EFCorePeliculas.DTOs;
+﻿using AutoMapper;
+using EFCorePeliculas.DTOs;
 using EFCorePeliculas.Entidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,10 +11,12 @@ namespace EFCorePeliculas.Controllers
     public class GenerosController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly IMapper _mapper;
 
-        public GenerosController(ApplicationDbContext context)
+        public GenerosController(ApplicationDbContext context, IMapper mapper)
         {
             this._context = context;
+            _mapper = mapper;
         }
 
         //Trae todos los generos
@@ -24,6 +27,11 @@ namespace EFCorePeliculas.Controllers
         [HttpGet]
         public async Task<IEnumerable<Genero>> Get()
         {
+            _context.Logs.Add(new Log
+            {
+                Mensaje = "Ejecutando el método GenerosController.Get"
+            });
+            await _context.SaveChangesAsync();
             return await _context.Generos
                 //.Where(g => !g.EstaBorrado)
                 .ToListAsync();
@@ -123,13 +131,20 @@ namespace EFCorePeliculas.Controllers
         /// <param name="genero"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<ActionResult> Post(Genero genero)
+        public async Task<ActionResult> Post(GeneroCreacionDTO generoCreacionDTO)
         {
-            var estatus1 = _context.Entry(genero).State;
+            var genero = _mapper.Map<Genero>(generoCreacionDTO);
+
+            var exitesGeneroConNombre = await _context.Generos.AnyAsync(g => g.Nombre == genero.Nombre);
+
+            if(exitesGeneroConNombre)
+            {
+                return BadRequest("Ya existe un género con ese nombre: " + genero.Nombre);
+            }
+
             _context.Add(genero);
-            var estatus2 = _context.Entry(genero).State;
             await _context.SaveChangesAsync();
-            var estatus3 = _context.Entry(genero).State;
+
             return Ok();
         }
 

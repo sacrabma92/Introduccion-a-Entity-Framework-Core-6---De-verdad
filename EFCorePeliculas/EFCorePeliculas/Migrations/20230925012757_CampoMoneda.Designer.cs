@@ -4,6 +4,7 @@ using EFCorePeliculas;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 
@@ -12,9 +13,11 @@ using NetTopologySuite.Geometries;
 namespace EFCorePeliculas.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230925012757_CampoMoneda")]
+    partial class CampoMoneda
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -180,16 +183,16 @@ namespace EFCorePeliculas.Migrations
                         {
                             Id = 2,
                             CineId = 4,
-                            FechaFin = new DateTime(2023, 9, 30, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaInicio = new DateTime(2023, 9, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaFin = new DateTime(2023, 9, 29, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaInicio = new DateTime(2023, 9, 24, 0, 0, 0, 0, DateTimeKind.Local),
                             PorcentajeDescuento = 15m
                         },
                         new
                         {
                             Id = 1,
                             CineId = 1,
-                            FechaFin = new DateTime(2023, 10, 2, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaInicio = new DateTime(2023, 9, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaFin = new DateTime(2023, 10, 1, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaInicio = new DateTime(2023, 9, 24, 0, 0, 0, 0, DateTimeKind.Local),
                             PorcentajeDescuento = 10m
                         });
                 });
@@ -505,21 +508,6 @@ namespace EFCorePeliculas.Migrations
                             Precio = 290m,
                             TipoSalaDeCine = "TresDimensiones"
                         });
-                });
-
-            modelBuilder.Entity("EFCorePeliculas.Entidades.SinLLaves.CineSinUbicacion", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Nombre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable((string)null);
-
-                    b.ToView(null, (string)null);
-
-                    b.ToSqlQuery("Select Id, Nombre FROM Cines");
                 });
 
             modelBuilder.Entity("GeneroPelicula", b =>

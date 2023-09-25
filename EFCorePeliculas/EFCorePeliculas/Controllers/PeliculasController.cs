@@ -2,6 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using EFCorePeliculas.DTOs;
 using EFCorePeliculas.Entidades;
+using EFCorePeliculas.Entidades.SinLLaves;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -75,6 +76,16 @@ namespace EFCorePeliculas.Controllers
             peliculas.Cines = peliculas.Cines.DistinctBy(x => x.Id).ToList();
 
             return Ok(peliculas);
+        }
+
+        /// <summary>
+        /// v81 Ejecutando con Vista SQL
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("PeliculasConConteoVIEWSQL")]
+        public async Task<ActionResult<IEnumerable<PeliculaConConteos>>> GetPeliculasConCOnteos()
+        {
+            return await _context.Set<PeliculaConConteos>().ToListAsync();
         }
 
         /// <summary>

@@ -2,6 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using EFCorePeliculas.DTOs;
 using EFCorePeliculas.Entidades;
+using EFCorePeliculas.Entidades.SinLLaves;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -34,6 +35,16 @@ namespace EFCorePeliculas.Controllers
                 ProjectTo<CineDTO>(_mapper.ConfigurationProvider).ToListAsync();
 
             return cines;
+        }
+
+        /// <summary>
+        /// v80 Entidad sin llaves
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("sinubicacion")]
+        public async Task<IEnumerable<CineSinUbicacion>> GetCinesSinUbucacion()
+        {
+            return await _context.Set<CineSinUbicacion>().ToListAsync();
         }
 
         /// <summary>
