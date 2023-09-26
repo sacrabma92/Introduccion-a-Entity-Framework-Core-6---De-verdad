@@ -91,7 +91,7 @@ namespace EFCorePeliculas.Controllers
 
             var cin = new Cine()
             {
-                Nombre = "Mi cine",
+                Nombre = "Mi cine con Restrict",
                 Ubicacion = ubicacionCine,
                 CineOferta = new CineOferta()
                 {
@@ -211,6 +211,34 @@ namespace EFCorePeliculas.Controllers
                 return NotFound();
             }
 
+            _context.Remove(cine);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
+        /// <summary>
+        /// v95 Eliminar un Cine cuando en la API fluente esta en modo Restrict. Toca tener presente el orden a borrar, cuando la tabla es dependiente toca hacer en cascada
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete("onDelete/{id:int}")]
+        public async Task<ActionResult> onDelete(int id)
+        {
+            var cine = await _context.Cines
+                .Include(x => x.SalaDeCine)
+                .Include(c => c.CineOferta)
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            if (cine is null)
+            {
+                return NotFound();
+            }
+
+            // Borro primero la tabla dependiente Sala de Cine
+            _context.RemoveRange(cine.SalaDeCine);
+            await _context.SaveChangesAsync();
+
+            // Despues borro en la tabla principal. Como borrar en Cascada
             _context.Remove(cine);
             await _context.SaveChangesAsync();
             return Ok();

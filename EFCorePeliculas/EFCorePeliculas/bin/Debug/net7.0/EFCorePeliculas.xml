@@ -102,6 +102,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:EFCorePeliculas.Controllers.CinesController.onDelete(System.Int32)">
+            <summary>
+            v95 Eliminar un Cine cuando en la API fluente esta en modo Restrict. Toca tener presente el orden a borrar, cuando la tabla es dependiente toca hacer en cascada
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:EFCorePeliculas.Controllers.GenerosController.Get">
             <summary>
             Trae todos los Generos
@@ -342,6 +349,18 @@
             <inheritdoc />
         </member>
         <member name="M:EFCorePeliculas.Migrations.VistaConteoPeliculas.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EFCorePeliculas.Migrations.NoPodemosBorrarCinesConSalasDeCine">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.NoPodemosBorrarCinesConSalasDeCine.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.NoPodemosBorrarCinesConSalasDeCine.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.NoPodemosBorrarCinesConSalasDeCine.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>
