@@ -363,5 +363,17 @@
         <member name="M:EFCorePeliculas.Migrations.NoPodemosBorrarCinesConSalasDeCine.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:EFCorePeliculas.Migrations.TablaPersonaMensaje">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.TablaPersonaMensaje.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.TablaPersonaMensaje.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.TablaPersonaMensaje.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

@@ -44,7 +44,7 @@ namespace EFCorePeliculas
         public DbSet<SalaDeCine> SalasDeCines { get; set; }
         public DbSet<PeliculaActor> PeliculasActores { get; set; }
         public DbSet<Log> Logs { get; set; }
-        //public DbSet<Persona> Personas { get; set; }
-        //public DbSet<Mensaje> Mensajes { get; set; }
+        public DbSet<Persona> Personas { get; set; }
+        public DbSet<Mensaje> Mensajes { get; set; }
     }
 }
