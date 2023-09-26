@@ -22,7 +22,7 @@ namespace EFCorePeliculas.Entidades.Configuraciones
             builder.HasMany(c => c.SalaDeCine)
                 .WithOne(s => s.Cine)
                 .HasForeignKey(s => s.CineId)
-                //v95 No poder borrar un cine si este tiene SalasDeCine
+                //v95 No poder borrar un cine si este tiene valores en la tabla SalasDeCine
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }
