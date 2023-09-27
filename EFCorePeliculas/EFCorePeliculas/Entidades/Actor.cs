@@ -43,5 +43,8 @@ namespace EFCorePeliculas.Entidades
                 return edad;
             }
         }
+        //v97 entidad de Propiedad
+        public Direccion DireccionHogar { get; set; }
+        public Direccion BillingAddress { get; set; }
     }
 }

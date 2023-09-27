@@ -15,6 +15,12 @@ namespace EFCorePeliculas.Entidades.Configuraciones
 
             //builder.Ignore(a => a.Edad);
 
+            builder.OwnsOne(a => a.DireccionHogar, dir =>
+            {
+                dir.Property(d => d.Calle).HasColumnName("Calle");
+                dir.Property(d => d.Provincia).HasColumnName("Provincia");
+                dir.Property(d => d.Pais).HasColumnName("Pais");
+            });
         }
     }
 }

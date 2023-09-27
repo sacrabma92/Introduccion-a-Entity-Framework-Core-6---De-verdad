@@ -4,6 +4,7 @@ using EFCorePeliculas;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 
@@ -12,9 +13,11 @@ using NetTopologySuite.Geometries;
 namespace EFCorePeliculas.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230927004706_CineDetalleTableSplitting")]
+    partial class CineDetalleTableSplitting
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -736,93 +739,6 @@ namespace EFCorePeliculas.Migrations
                             PeliculasId = 5,
                             SalasDeCineId = 7
                         });
-                });
-
-            modelBuilder.Entity("EFCorePeliculas.Entidades.Actor", b =>
-                {
-                    b.OwnsOne("EFCorePeliculas.Entidades.Direccion", "BillingAddress", b1 =>
-                        {
-                            b1.Property<int>("ActorId")
-                                .HasColumnType("int");
-
-                            b1.Property<string>("Calle")
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Pais")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Provincia")
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.HasKey("ActorId");
-
-                            b1.ToTable("Actores");
-
-                            b1.WithOwner()
-                                .HasForeignKey("ActorId");
-                        });
-
-                    b.OwnsOne("EFCorePeliculas.Entidades.Direccion", "DireccionHogar", b1 =>
-                        {
-                            b1.Property<int>("ActorId")
-                                .HasColumnType("int");
-
-                            b1.Property<string>("Calle")
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("Calle");
-
-                            b1.Property<string>("Pais")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("Pais");
-
-                            b1.Property<string>("Provincia")
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("Provincia");
-
-                            b1.HasKey("ActorId");
-
-                            b1.ToTable("Actores");
-
-                            b1.WithOwner()
-                                .HasForeignKey("ActorId");
-                        });
-
-                    b.Navigation("BillingAddress");
-
-                    b.Navigation("DireccionHogar");
-                });
-
-            modelBuilder.Entity("EFCorePeliculas.Entidades.Cine", b =>
-                {
-                    b.OwnsOne("EFCorePeliculas.Entidades.Direccion", "Direccion", b1 =>
-                        {
-                            b1.Property<int>("CineId")
-                                .HasColumnType("int");
-
-                            b1.Property<string>("Calle")
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("Calle");
-
-                            b1.Property<string>("Pais")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("Pais");
-
-                            b1.Property<string>("Provincia")
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("Provincia");
-
-                            b1.HasKey("CineId");
-
-                            b1.ToTable("Cines");
-
-                            b1.WithOwner()
-                                .HasForeignKey("CineId");
-                        });
-
-                    b.Navigation("Direccion");
                 });
 
             modelBuilder.Entity("EFCorePeliculas.Entidades.CineDetalle", b =>

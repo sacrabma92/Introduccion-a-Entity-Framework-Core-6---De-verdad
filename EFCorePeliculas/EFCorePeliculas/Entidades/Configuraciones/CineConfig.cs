@@ -24,6 +24,19 @@ namespace EFCorePeliculas.Entidades.Configuraciones
                 .HasForeignKey(s => s.CineId)
                 //v95 No poder borrar un cine si este tiene valores en la tabla SalasDeCine
                 .OnDelete(DeleteBehavior.Restrict);
+
+            // v96 Relacion 1:1 Cine con CineDetalle
+            builder.HasOne(x => x.CineDetalle)
+                .WithOne(cd => cd.Cine)
+                .HasForeignKey<CineDetalle>(cd => cd.Id);
+
+            // v97 nombre entidad de propiedad
+            builder.OwnsOne(c => c.Direccion, dir =>
+            {
+                dir.Property(d => d.Calle).HasColumnName("Calle");
+                dir.Property(d => d.Provincia).HasColumnName("Provincia");
+                dir.Property(d => d.Pais).HasColumnName("Pais");
+            });
         }
     }
 }

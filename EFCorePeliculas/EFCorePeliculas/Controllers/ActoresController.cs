@@ -2,6 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using EFCorePeliculas.DTOs;
 using EFCorePeliculas.Entidades;
+using EFCorePeliculas.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -106,5 +107,11 @@ namespace EFCorePeliculas.Controllers
             await _context.SaveChangesAsync();
             return Ok();
         }
+
+        //[HttpGet("Enums")]
+        //public ActionResult GetEnums()
+        //{
+        //    return Ok(Enums.MessageExist);
+        //}
     }
 }

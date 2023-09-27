@@ -91,7 +91,7 @@ namespace EFCorePeliculas.Controllers
 
             var cin = new Cine()
             {
-                Nombre = "Mi cine con Restrict",
+                Nombre = "Mi cine sin detalle",
                 Ubicacion = ubicacionCine,
                 CineOferta = new CineOferta()
                 {

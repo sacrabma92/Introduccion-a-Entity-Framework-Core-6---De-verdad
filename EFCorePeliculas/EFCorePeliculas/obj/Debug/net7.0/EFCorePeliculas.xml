@@ -382,5 +382,29 @@
         <member name="M:EFCorePeliculas.Migrations.TablaPersonaMensaje.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:EFCorePeliculas.Migrations.CineDetalleTableSplitting">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.CineDetalleTableSplitting.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.CineDetalleTableSplitting.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.CineDetalleTableSplitting.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EFCorePeliculas.Migrations.EjemploOwned">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.EjemploOwned.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.EjemploOwned.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.EjemploOwned.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

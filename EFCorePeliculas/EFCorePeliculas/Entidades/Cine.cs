@@ -16,5 +16,8 @@ namespace EFCorePeliculas.Entidades
 
         // Relacion de SalaDeCine
         public HashSet<SalaDeCine> SalaDeCine { get; set; }
+        public CineDetalle CineDetalle { get; set; }
+        // v97 entidad de Propiedad
+        public Direccion Direccion { get; set; }
     }
 }
