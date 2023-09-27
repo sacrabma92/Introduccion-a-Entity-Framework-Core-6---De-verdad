@@ -1,4 +1,5 @@
 using EFCorePeliculas;
+using EFCorePeliculas.Servicios;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using System.Text.Json.Serialization;
@@ -28,6 +29,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(opciones =>
         // Configuracion del AsNoTracking de forma Global
         opciones.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
     });
+
+builder.Services.AddScoped<IServicioUsuario,  ServicioUsuario>();
 
 //Configurar el Autommaper
 builder.Services.AddAutoMapper(typeof(Program));

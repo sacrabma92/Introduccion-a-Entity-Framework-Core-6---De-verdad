@@ -1,6 +1,7 @@
 ﻿using EFCorePeliculas.Entidades;
 using EFCorePeliculas.Entidades.Seeding;
 using EFCorePeliculas.Entidades.SinLLaves;
+using EFCorePeliculas.Servicios;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -8,8 +9,38 @@ namespace EFCorePeliculas
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions options) : base(options)
+        private readonly IServicioUsuario _servicioUsuario;
+
+        public ApplicationDbContext(DbContextOptions options, IServicioUsuario servicioUsuario) : base(options)
         {
+            _servicioUsuario = servicioUsuario;
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            //v120
+            ProcesarSalvado(); 
+            return base.SaveChangesAsync(cancellationToken);
+        }
+
+        //v120 
+        private void ProcesarSalvado()
+        {
+            foreach (var item in ChangeTracker.Entries().Where(e => e.State == EntityState.Modified &&
+                    e.Entity is EntidadAuditable))
+            {
+                var entidad = item.Entity as EntidadAuditable;
+                entidad.UsuarioCreacion = _servicioUsuario.ObtenerUsuarioId();
+                entidad.UsuarioModificacion = _servicioUsuario.ObtenerUsuarioId();
+            }
+
+            foreach (var item in ChangeTracker.Entries().Where(e => e.State == EntityState.Modified
+                   && e.Entity is EntidadAuditable))
+            {
+                var entidad = item.Entity as EntidadAuditable;
+                entidad.UsuarioModificacion = _servicioUsuario.ObtenerUsuarioId();
+                item.Property(nameof(entidad.UsuarioCreacion)).IsModified = false;
+            }
         }
 
         //Configurar que en todo el proyecto todo los datetime sean date

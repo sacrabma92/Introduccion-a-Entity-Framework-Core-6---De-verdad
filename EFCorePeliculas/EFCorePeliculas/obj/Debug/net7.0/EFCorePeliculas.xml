@@ -406,5 +406,17 @@
         <member name="M:EFCorePeliculas.Migrations.EjemploOwned.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:EFCorePeliculas.Migrations.GeneroAuditable">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.GeneroAuditable.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.GeneroAuditable.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EFCorePeliculas.Migrations.GeneroAuditable.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
-namespace EFCorePeliculas.Entidades
+namespace EFCorePeliculas.Entidades 
 {
     // v76 configuracion de indice en una tabla
     //[Index(nameof(Nombre), IsUnique = true)]
-    public class Genero
+    public class Genero : EntidadAuditable
     {
         //[Key]
         public int Identificador { get; set; }

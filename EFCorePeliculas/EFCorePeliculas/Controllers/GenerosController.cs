@@ -235,5 +235,13 @@ namespace EFCorePeliculas.Controllers
             await _context.SaveChangesAsync();
             return Ok();
         }
+
+        [HttpPut]
+        public async Task<ActionResult> Put(GeneroCreacionDTO generoCreacionDTO)
+        {
+            _context.Update(generoCreacionDTO);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
     }
 }
